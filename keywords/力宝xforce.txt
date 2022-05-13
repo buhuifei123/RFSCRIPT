@@ -1,0 +1,13 @@
+*** Settings ***
+Library           RequestsLibrary
+Resource          ../variables/力宝xforce环境.txt
+
+*** Keywords ***
+登录
+    ${header}    Create Dictionary    Content-Type=application/json    Origin=http://xforce.gsp-test.ebms.xy
+    Create Session    host    http://api-xforce.gsp-test.ebms.xy    headers=${header}
+    ${res}    POST On Session    host    /app/appLogin    data={ \ \ "account": "${account}", \ \ "password": "${password}" }
+    Comment    log    ${res.json()}
+    Comment    Should Be Equal    ${res.json()['code']}    200
+    ${token}    Set Variable    ${res.json()['data']['accessToken']}
+    [Return]    ${token}

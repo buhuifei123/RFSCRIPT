@@ -1,0 +1,18 @@
+*** Settings ***
+Library           RequestsLibrary
+Resource          ../variables/global-admin环境.txt
+Resource          global_admin.txt
+
+*** Keywords ***
+登录
+    ${header}    Create Dictionary    content-type=application/json    origin=${origin}
+    Create Session    host    http://api.test.gmp.xyb2b.com.cn    headers=${header}
+    ${res}    POST On Session    host    /global-user-portal/sso/login/byPwd    data={"account":"${account}","password":"${pwd}"}
+    Should Be Equal    '${res.status_code}'    '200'
+    ${token}    Set Variable    ${res.json()['data']['accessToken']}
+    [Return]    ${token}
+
+创建session
+    ${token}    登录
+    ${header}    Create Dictionary    content-type=application/json    origin=${origin}    Authorization=Bearer ${token}
+    create session    host    ${host}    headers=${header}

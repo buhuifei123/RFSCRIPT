@@ -1,0 +1,5 @@
+*** Variables ***
+${account}        3Wd6CiEU0UAWlfXOOwG/s0z/PI7PoT3/Cu8AGHfZdDG6jul2k3bxNfkLpeu+HjrxQ5+EmOtLJXKgDsR4463ol8Gauff5k1aUb2dx0SJMj6dASBXvpLpSgFexy4jMdFXvoRG6dpRDl8Gn02WPFABWHgFiilZu3gQGqyukFkE2P4Y=
+${pwd}            YXHilkEmygkMZ2uMMVLar5Ko33qA44KG35WHx1PfDdKRkMoyg+UPBOL80/yfSIPamj8oknuC0TupSh/5wRSEBw4sHTctMf9XzCfQmjT3yyCz4e7p0nUBGp7Szc0sV066x9Kkqm6K59qsB/Tm3DtjTNfDxCNvPjRH+6MY7PAtczY=
+${origin}         http://un-admin.test.bbmall.xyb2b.com.cn
+${host}           http://un-api.test.bbmall.xyb2b.com.cn

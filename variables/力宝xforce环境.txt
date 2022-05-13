@@ -1,0 +1,3 @@
+*** Variables ***
+${account}        102990
+${password}       NRT5vou7DmJqt7KTCJRaCIOAH2mdsiNCjrNB2Lo1E31ghocyJDBFQJds764oiEjiEhu3OVtEOgHLR+TCrH6kHM+fH3laAZfaq0EwO2ml15UJSX7+I8DLQXw5W4gwl6NnGAi2LyHkGwn/SqR5YnQj7hwLtRDzlZ2OPUGo1at5I+g=
