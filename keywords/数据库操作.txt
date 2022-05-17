@@ -1,0 +1,12 @@
+*** Settings ***
+Library           DatabaseLibrary
+
+*** Keywords ***
+连接global-gmp_test数据库
+    Connect To Database Using Custom Params    pymysql    database='gmp_test',user='gmp',password='gmp',host='mysql-0.mysql.bbmall-middleware.svc.cluster.bbmall',port=3306
+
+断开数据库
+    Disconnect From Database
+
+连接力宝bbmall_xforce_test数据库
+    Connect To Database Using Custom Params    pymysql    database='bbmall_xforce_test',user='gsp_test',password='gsp_test',host='mysql-0.mysql.gsp-middleware-service.svc.cluster.local',port=3306
