@@ -4,6 +4,7 @@ Resource          ../variables/global-admin环境.txt
 Resource          ../keywords/global_admin.txt
 Library           ../library/MyClass.py
 Library           DatabaseLibrary
+Resource          ../keywords/数据库操作.txt
 
 *** Test Cases ***
 001查询添加人列表下拉(搜索入参)
@@ -17,10 +18,12 @@ Library           DatabaseLibrary
     Should Contain    '${res.json()['msg']}'    '请求成功'
     Should Not Be Empty    ${res.json()['data']}
 
-连接数据库
-    Connect To Database Using Custom Params    pymysql    database='gmp_test',user='gmp',password='gmp',host='mysql-0.mysql.bbmall-middleware.svc.cluster.bbmall',port=3306
+连接gmp_test数据库
+    连接global-gmp_test数据库
     @{b}    Query    select id from t_uic_shop where user_id=100
     FOR    ${i}    IN    @{b}
-        Printmsg    ${i[0]}
+        Should Be Equal    '${i[0]}'    '100'
     END
-    Disconnect From Database
+    断开数据库
+    连接力宝bbmall_xforce_test数据库
+    断开数据库

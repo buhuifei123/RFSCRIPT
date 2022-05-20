@@ -1,6 +1,7 @@
 *** Settings ***
 Library           RequestsLibrary
 Resource          ../variables/力宝xforce环境.txt
+Resource          力宝xforce.txt
 
 *** Keywords ***
 登录
@@ -11,3 +12,8 @@ Resource          ../variables/力宝xforce环境.txt
     Comment    Should Be Equal    ${res.json()['code']}    200
     ${token}    Set Variable    ${res.json()['data']['accessToken']}
     [Return]    ${token}
+
+创建xfroceSession
+    ${token}    登录
+    ${header}    Create Dictionary    Origin=http://xforce.gsp-test.ebms.xy    Authorization=Bearer ${token}
+    create session    url    http://api-xforce.gsp-test.ebms.xy    headers=${header}
