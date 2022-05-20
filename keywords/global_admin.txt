@@ -16,3 +16,9 @@ Resource          global_admin.txt
     ${token}    登录
     ${header}    Create Dictionary    content-type=application/json    origin=${origin}    Authorization=Bearer ${token}
     create session    host    ${host}    headers=${header}
+
+admin_get请求
+    [Arguments]    ${url}
+    创建session
+    ${res}    GET On Session    host    ${url}
+    [Return]    ${res}
