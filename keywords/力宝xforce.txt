@@ -5,7 +5,7 @@ Resource          力宝xforce.txt
 
 *** Keywords ***
 登录
-    ${header}    Create Dictionary    Content-Type=application/json    Origin=http://xforce.gsp-test.ebms.xy
+    ${header}    Create Dictionary    Content-Type=application/json    Origin=${xforce_origin}
     Create Session    host    http://api-xforce.gsp-test.ebms.xy    headers=${header}
     ${res}    POST On Session    host    /app/appLogin    data={ \ \ "account": "${account}", \ \ "password": "${password}" }
     Comment    log    ${res.json()}
@@ -15,5 +15,5 @@ Resource          力宝xforce.txt
 
 创建xfroceSession
     ${token}    登录
-    ${header}    Create Dictionary    Origin=http://xforce.gsp-test.ebms.xy    Authorization=Bearer ${token}
+    ${header}    Create Dictionary    Origin=${xforce_origin}    Authorization=Bearer ${token}
     create session    url    http://api-xforce.gsp-test.ebms.xy    headers=${header}
