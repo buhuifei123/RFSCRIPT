@@ -5,6 +5,7 @@ Resource          global_admin.txt
 
 *** Keywords ***
 登录
+    [Tags]    01-傅海滨
     ${header}    Create Dictionary    content-type=application/json    origin=${origin}
     Create Session    host    http://api.test.gmp.xyb2b.com.cn    headers=${header}
     ${res}    POST On Session    host    /global-user-portal/sso/login/byPwd    data={"account":"${account}","password":"${pwd}"}

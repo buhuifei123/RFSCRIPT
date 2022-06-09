@@ -8,6 +8,7 @@ Resource          ../keywords/数据库操作.txt
 
 *** Test Cases ***
 001后台类目列表
+    [Tags]    01-傅海滨
     Comment    ${token}    登录
     Comment    ${header}    Create Dictionary    content-type=application/json    origin=${origin}    Authorization=Bearer ${token}
     Comment    create session    host    ${host}    headers=${header}

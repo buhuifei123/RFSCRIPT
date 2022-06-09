@@ -9,6 +9,6 @@ Resource          ../keywords/力宝xforce.txt
     登录
 
 002
-    ${res}    xforce_post请求    data={}
+    ${res}    xforce_post请求    /app/personalCenter/personalCenterDetail    data={}
     Comment    log    ${res.json()}
     Should Be Equal    '${res.json()['data']['userId']}'    '102990'

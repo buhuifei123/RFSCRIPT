@@ -16,10 +16,10 @@ Resource          力宝xforce.txt
 创建xfroceSession
     ${token}    登录
     ${header}    Create Dictionary    Origin=${xforce_origin}    Authorization=Bearer ${token}
-    create session    url    http://api-xforce.gsp-test.ebms.xy    headers=${header}
+    create session    host    http://api-xforce.gsp-test.ebms.xy    headers=${header}
 
 xforce_post请求
-    [Arguments]    ${data}
+    [Arguments]    ${url}    ${data}
     创建xfroceSession
-    ${res}    POST On Session    url    /app/personalCenter/personalCenterDetail    ${data}
+    ${res}    POST On Session    host    ${url}    ${data}
     [Return]    ${res}
